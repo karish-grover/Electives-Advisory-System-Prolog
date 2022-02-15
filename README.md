@@ -114,4 +114,4 @@ This is calling the `intro` function from the Prolog program.
 
 ## Issues
 
-In case of any issues in running the code, feel free to contact me or open an issue.
+In case of any issues in running the code or if you wish to understand the workflow of the code, feel free to contact me or open an issue.
