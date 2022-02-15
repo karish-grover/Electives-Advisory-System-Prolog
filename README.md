@@ -111,3 +111,7 @@ Run the code in the Prolog shell as follows:
 ```
 
 This is calling the `intro` function from the Prolog program.
+
+## Issues
+
+In case of any issues in running the code, feel free to contact me or open an issue.
