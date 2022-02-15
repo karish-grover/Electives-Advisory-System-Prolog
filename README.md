@@ -1,16 +1,23 @@
 # Electives Advisory System Prolog
 
+This repository implements an interactive elective advisory system in Prolog, from scratch. The user shall be recommended different electives along the course of running.
 
-The program is an elective advisory system. The user shall be recommended different electives not at the end of the entire program runtime, but along the course of running.
+## Working
+
 The program would first prompt the user for his name, year of study, and branch (cse/csd/csss/csam/ece/csb).
+
 The prolog program has predefined knowledge base with about 5-8 electives for every stream. The user would initially have to choose electives from his stream. Below is an example of a fact from the code:-
 
+```prolog
 elective(csd,
 	d{'Computer graphics':['IP'],
 	'Digital Image processing':['M1','PS'],
 	'Computer vision':['M1'],
 	'Machine learning':['IP','PS','M1','M3']}).
+```
+	
 Here elective is a fact, and the different electives from csd are listed in the form of a dictionary where different courses are the keys and their prerequisites are the values. 
+
 Now, once the user inputs his branch, he would be asked if he has done the prerequisites for all the electives from his stream. 
 Based on the completed list of prerequisites entered by the student, he would be given a list of electives (elegible and recommended).
 Now, next, the student will be asked his choice of career after graduation i.e. 
@@ -53,20 +60,29 @@ Functionality used:-
 A few of the complex functionalities have been used using recursion, backtracking and cuts. Like:-
 
 % Find union of two lists.
+
+```prolog
 union([], L, L).
 union([H|T1], L2, L3) :- member(H, L2), ! , union(T1, L2, L3).
 union([H|T1], L2, [H|T3]) :- union(T1, L2, T3).
+```
 
 % Find intersection of two lists.
+```prolog
 intersect([], _, []).
 intersect([H|T1], L2, L3) :- member(H, L2), !, L3 = [H|T3], intersect(T1, L2, T3).
 intersect([_|T1], L2, L3) :- intersect(T1, L2, L3).
+```
 
 % Flatten a list i.e. convert to 1D list.
+```prolog
 flat(L, F) :- flat(L, F, []).
 flat([], R, R) :- !.
 flat([H|T], R, C) :- !, flat(H, R, C1), flat(T, C1, C).
 flat(H0, [H0|C], C).
+```
+
+
 
 % Predicate which takes in two lists A1 and A2, and returns a list of elements of A1 which are not present in A2.
 obtain_elements(A1, A2, R):- findall(X,(member(X,A1), not(member(X,A2))),R).
