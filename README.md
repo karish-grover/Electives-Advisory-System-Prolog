@@ -101,7 +101,7 @@ obtain_elements(A1, A2, R):- findall(X,(member(X,A1), not(member(X,A2))),R).
 
 ## Running the program
 
-Screenshots for sample runs of the program have been shown.
+Screenshots for sample runs of the program have been shown in the [file](https://github.com/karish-grover/Electives-Advisory-System-Prolog/blob/274c35ae83d5dd3b7f604b05cb4765af4b997a98/Sample%20Runs.pdf).
 
 Run the code in the Prolog shell as follows:
 
